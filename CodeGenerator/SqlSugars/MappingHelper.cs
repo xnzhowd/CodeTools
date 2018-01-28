@@ -48,12 +48,15 @@ namespace CodeGenerator.SqlSugars
             sb.AppendLine($"  public class {className} : MappingColumnList");
             sb.AppendLine("{");
             //sb.AppendLine($"public {className}()");
-            sb.AppendLine("this.MappingTables.Add(new MappingTable(){EntityName=\""+
-                modeClassName+ "\",DbTableName=\""+ t.TableName+"\"});");
+            sb.AppendLine($"public const string EntityName= \"{modeClassName}\";");
+            sb.AppendLine($"public const string DbTableName= \"{t.TableName}\";");
+            sb.AppendLine("this.MappingTables.Add(new MappingTable() { EntityName = "+ className + ".EntityName, DbTableName =  " + className + ".DbTableName});");
+            //sb.AppendLine("this.MappingTables.Add(new MappingTable(){EntityName=\""+
+            //    modeClassName+ "\",DbTableName=\""+ t.TableName+"\"});");
 
             sb.AppendLine($"public {className}()");
             sb.AppendLine("{");
-            sb.AppendLine($"string entityName=\"{modeClassName}\";");
+            sb.AppendLine($"string entityName=EntityName;");
             //  sb.AppendLine($" ToTable(\"{t.TableName}\");");
             foreach (var c in t.Columns)
             {

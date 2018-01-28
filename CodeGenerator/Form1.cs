@@ -20,7 +20,7 @@ namespace CodeGenerator
         {
             InitializeComponent();
             // this.dataGridView1.DataSource = TableService.GetTableInfoes("V_ICS_DOOR_USG_INFO");
-            this.dataGridView1.DataSource= TableService.GetMySqlTableInfoes("ak_order");
+            this.dataGridView1.DataSource= TableService.GetMySqlTableInfoes("ak_user");
         }
 
          string ResolveColName(string colName)
@@ -112,7 +112,7 @@ namespace CodeGenerator
             {
                 ModelGenerator.GenerateModel(t);
                 var modeClassName = ResolveString(t.TableName);
-                var className = $"{modeClassName}MappingCols";
+                var className = $"{modeClassName}Mapping";
                 var sb =// GenerateClassCode(t, className, modeClassName);
                     MappingHelper.GenerateClassCode(t, className, modeClassName);
                 using (StreamWriter sw =
