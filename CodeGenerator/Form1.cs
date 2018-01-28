@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CodeGenerator.Rp;
+using CodeGenerator.SqlSugars;
 
 namespace CodeGenerator
 {
@@ -111,22 +112,23 @@ namespace CodeGenerator
             {
                 ModelGenerator.GenerateModel(t);
                 var modeClassName = ResolveString(t.TableName);
-                var className = $"{modeClassName}Mapper";
-                var sb = GenerateClassCode(t, className, modeClassName);
+                var className = $"{modeClassName}MappingCols";
+                var sb =// GenerateClassCode(t, className, modeClassName);
+                    MappingHelper.GenerateClassCode(t, className, modeClassName);
                 using (StreamWriter sw =
                     new StreamWriter(new FileStream("../../codes/" + className + ".cs", FileMode.Create,
                         FileAccess.Write)))
                 {
                     sw.WriteLine(sb.ToString());
                 }
-                addMapperCode.AppendLine($"modelBuilder.Configurations.Add(new {className}());");
+              //  addMapperCode.AppendLine($"modelBuilder.Configurations.Add(new {className}());");
             }
-            using (StreamWriter sw =
-                new StreamWriter(new FileStream("../../codes/"  + "addMapperCode.txt", FileMode.Create,
-                    FileAccess.Write)))
-            {
-                sw.WriteLine(addMapperCode.ToString());
-            }
+            //using (StreamWriter sw =
+            //    new StreamWriter(new FileStream("../../codes/"  + "addMapperCode.txt", FileMode.Create,
+            //        FileAccess.Write)))
+            //{
+            //    sw.WriteLine(addMapperCode.ToString());
+            //}
             MessageBox.Show("完成");
         }
 

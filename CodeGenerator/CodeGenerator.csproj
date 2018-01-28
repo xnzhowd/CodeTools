@@ -71,6 +71,7 @@
     <Compile Include="RIOC.cs" />
     <Compile Include="Rp\ModelGenerator.cs" />
     <Compile Include="Rp\RepositoryGenerator.cs" />
+    <Compile Include="SqlSugars\MappingHelper.cs" />
     <Compile Include="TableInfo.cs" />
     <Compile Include="TableService.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -114,5 +115,6 @@
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
