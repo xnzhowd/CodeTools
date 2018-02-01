@@ -73,7 +73,7 @@
     <Compile Include="Rp\RepositoryGenerator.cs" />
     <Compile Include="SqlSugars\MappingHelper.cs" />
     <Compile Include="TableInfo.cs" />
-    <Compile Include="TableService.cs" />
+    <Compile Include="Util\TableService.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

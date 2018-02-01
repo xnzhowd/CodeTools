@@ -20,7 +20,7 @@ namespace CodeGenerator
         {
             InitializeComponent();
             // this.dataGridView1.DataSource = TableService.GetTableInfoes("V_ICS_DOOR_USG_INFO");
-            this.dataGridView1.DataSource= TableService.GetMySqlTableInfoes("ak_user");
+            this.dataGridView1.DataSource= TableService.GetMySqlTableInfoes("ak_payinfo");
         }
 
          string ResolveColName(string colName)

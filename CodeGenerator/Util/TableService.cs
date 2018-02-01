@@ -12,7 +12,8 @@ namespace CodeGenerator
 {
     static class ConnectionManager
     {
-        public const string MySqlConnectionString = "server=39.108.96.111;port=3306;user id=test1;password=abcabc123;database=tzzx; Allow Zero Datetime=True;";
+        public const string MySqlConnectionString =
+            "server=localhost;port=3306;user id=root;password=zt123;database=tzzx; Allow Zero Datetime=True;";
         public const string ConnectionString = "Server=WIN-TPOTA8LLU3T;database=C3Metro0302;uid=sa;pwd=das123";
     }
 
